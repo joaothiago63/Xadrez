@@ -1,10 +1,15 @@
 package application;
 
+
+import boardgame.position;
+
 public class program {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hello Word");
+     position posi= new position(2,3);
+     System.out.println(posi);
+		
 		
 	}
 
