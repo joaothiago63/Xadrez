@@ -1,4 +1,4 @@
-package boardgame;
+	package boardgame;
 
 public class Board {
 	
@@ -24,7 +24,7 @@ public class Board {
 		return columns;
 	}
 	
-	public Piece piece(int rows, int columns)throws BoardException {
+	public Piece piece(int rows, int columns) {
 		if(!positionExist(rows,columns)) {
 			throw new BoardException (" Position Not on the Board");
 		}
@@ -45,6 +45,19 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()]=piece;
 		piece.position=position;
 	}
+	public Piece removePiece(Position position) {
+		 if(!positionExist(position)) {
+			 throw new BoardException("Position not on the board");
+		 }
+		 if(piece(position)==null) {
+			 return null;
+		 }
+		 Piece aux=piece(position);
+		 aux.position=null;
+		 pieces[position.getRow()][position.getRow()]=null;
+		 return aux;
+		 
+	 }
 	
 	private boolean positionExist(int row, int column) {
 		return row>=0 && row<rows && column>=0 && column<columns;
@@ -54,12 +67,12 @@ public class Board {
 		return positionExist(position.getRow(),position.getColumn());
 	}
     
-	public boolean thereIsAPiece(Position position) throws BoardException{
+	public boolean thereIsAPiece(Position position) {
 		if(!positionExist(position)) {
 			throw new BoardException ("Position not in the board");
 		}
 		return piece(position)!=null;
 	}
 	
-
+ 
 }
