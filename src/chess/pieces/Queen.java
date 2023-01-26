@@ -17,10 +17,7 @@ public class Queen extends ChessPiece{
 	}
 	
 	
-	private boolean canMove(Position position) {
-		ChessPiece p = (ChessPiece) getBoard().piece(position);
-		return p == null || p.getColor()!=getColor();
-	}
+	
 	
 
 	@Override
